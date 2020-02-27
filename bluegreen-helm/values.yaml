@@ -1,0 +1,19 @@
+# Default values for go-microservice.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+productionSlot: blue
+
+blue:
+  replicaCount: 1
+  image: hashicorp/http-echo:latest
+  pullPolicy: Always
+green:
+  replicaCount: 1
+  image: hashicorp/http-echo:latest
+  pullPolicy: Always
+
+
+service:
+  type: ClusterIP
+  port: 8080
