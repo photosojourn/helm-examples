@@ -2,22 +2,5 @@
 
 A chart to deploy the AWS Cloudwatch agent and related flunetd image to enable data feeds for ContainerInsights and CloudWatch logs. 
 
-### IAM Role
+The Pod Role will need the follow AWS managed Policy: `arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy`
 
-Below is an example Terrafomr policy doc for the required IAM Role:
-
-```
-data "aws_iam_policy_document" "cloudwatch_policy_doc" {
-  statement {
-    sid = 1
-
-    effect = "Allow"
-    actions = [
-      "cloudwatch:PutMetricData",
-      "logs:PutDestination",
-      "logs:PutLogEvents"
-    ]
-    resources = ["*"]
-  }
-}
-```
